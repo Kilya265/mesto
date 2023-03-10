@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pages/index.css">
+    <title>Место России</title>
+</head>
+<body class="page">
+  <header class="header">
+    <img class="header__logo" src="./images/logo.svg" alt="Логотип Место России">
+    <div class="header__line"></div>
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__ellipse"><img class="profile__avatar" src="./images/image.png" alt="Жак-Ив Кусто"></div>
+      <div class="profile__info">
+        <h1 class="profile__title">Жак-Ив Кусто</h1>
+        <button type="button" class="profile__edit-button" aria-label="Редактировать профиль"></button>
+        <p class="profile__description">Исследователь океана</p>
+      </div>
+      <button type="button" class="profile__add-button " aria-label="Добавить место"></button>
+    </section>
+    <section class="place">
+      <ul class="place__table">
+        <li class="place__card">
+          <img class="place__photo" src="./images/Karachay-Cherkessia.jpg" alt="Карачаево-Черкесия">
+          <div class="place__item">
+            <h2 class="place__title">Карачаевск</h2>
+            <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
+          </div>
+        </li>
+        <li class="place__card">
+          <img class="place__photo" src="./images/elbrus.jpg" alt="Гора Эльбрус">
+          <div class="place__item">
+            <h2 class="place__title">Гора Эльбрус</h2>
+            <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
+          </div>
+        </li>
+        <li class="place__card">
+          <img class="place__photo" src="./images/dombay.jpg" alt="Домбай">
+          <div class="place__item">
+            <h2 class="place__title">Домбай</h2>
+            <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
+          </div>
+        </li>
+        <li class="place__card">
+          <img class="place__photo" src="./images/king-fish.jpg" alt="Царь Рыба. Красноярск">
+          <div class="place__item">
+            <h2 class="place__title">Красноярск</h2>
+            <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
+          </div>
+        </li>
+        <li class="place__card">
+          <img class="place__photo" src="./images/Lena_Pillars.jpg" alt="Ленские Столбы. Якутия">
+          <div class="place__item">
+            <h2 class="place__title">Якутия</h2>
+            <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
+          </div>
+        </li>
+        <li class="place__card">
+          <img class="place__photo" src="./images/river-katun.jpg" alt="Река Катунь. Горный Алтай">
+          <div class="place__item">
+            <h2 class="place__title">Горный алтай</h2>
+            <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy;2023 Лилия Толстихина</p>
+  </footer>
+  <section class="popup__edit-form">
+    <div class="popup__container">
+      <button type="button" class="popup__close" aria-label="Редактировать профиль"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__form" name="popup__edit-form" action="#">
+        <input type="text" class="popup__input popup__input_key_title" placeholder="Имя пользователя" name="name" required>
+        <input type="text" class="popup__input popup__input_key_description" placeholder="Описание профиля" name="description" required>
+        <button type="submit" class="popup__save" value="submit">Сохранить</button>
+      </form>
+    </div>
+  </section>
+  <script src="./scripts/srcript.js"></script>
+</body>
+</html>

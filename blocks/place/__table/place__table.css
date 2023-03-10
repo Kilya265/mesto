@@ -1,0 +1,17 @@
+.place__table {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 20px 17px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media screen and (max-width: 1024px) {
+  .place__table {
+    gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+

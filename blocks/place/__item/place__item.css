@@ -1,0 +1,7 @@
+.place__item {
+  max-width: 246px;
+  height: 23px;
+  display: flex;
+  justify-content: space-between;
+  margin: 25px auto 31px;
+}
