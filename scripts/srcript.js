@@ -30,7 +30,7 @@ function saveButtonEdit(saveButton) {
   titleProfile.textContent = titlePopup.value;
   descriptionProfile.textContent = descriptionPopup.value;
 
-  popupElement.classList.remove('popup_is-opened');
+  closePopup();
 }
 
 popupElement.addEventListener('submit', saveButtonEdit);
