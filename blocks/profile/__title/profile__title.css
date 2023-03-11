@@ -6,6 +6,7 @@
   font-size: 42px;
   line-height: 48px;
   margin: 0;
+  padding-bottom: 11px;
 
   color: #FFFFFF;
 
@@ -17,7 +18,9 @@
 @media screen and (max-width: 1024px) {
   .profile__title {
     width: 189px;
-    padding-left: 30px;
+    padding-top: 3px;
+    padding-left: 23px;
+    padding-bottom: 0;
     font-size: 27px;
     line-height: 33px;
     text-align: center;

@@ -5,7 +5,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  margin-top: 16px;
+  margin-top: 0;
   margin-bottom: 0;
 
   color: #FFFFFF;
@@ -21,7 +21,7 @@
     font-size: 14px;
     line-height: 17px;
     text-align: center;
-    margin-top: 9px;
+    margin-top: 12px;
     color: #FFFFFF;
   }
 }
