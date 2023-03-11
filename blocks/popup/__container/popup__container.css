@@ -2,7 +2,7 @@
   position: relative;
   box-sizing: border-box;
   width: 430px;
-  height: 330px;
+  min-height: 330px;
   background-color: #fff;
   border-radius: 10px;
   margin: 0 auto;
@@ -12,6 +12,6 @@
 @media screen and (max-width: 768px) {
   .popup__container {
     max-width: 282px;
-    max-height: 322px;
+    min-height: 322px;
   }
 }
