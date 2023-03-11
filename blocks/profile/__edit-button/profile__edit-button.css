@@ -5,7 +5,7 @@
   width: 24px;
   max-height: 24px;
   border: 1px solid #fff;
-  background: transparent url(../../../images/pensil.png) no-repeat center;
+  background: transparent url(../../../images/pensil.svg) no-repeat center;
   transition: all 0.4s ease-in-out;
 }
 
@@ -16,7 +16,6 @@
 @media screen and (max-width: 1024px) {
   .profile__edit-button {
     margin: 8px 0 0 10px;
-    padding: 0;
     width: 18px;
     max-height: 18px;
   }
