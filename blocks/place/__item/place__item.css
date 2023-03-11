@@ -1,7 +1,13 @@
 .place__item {
   max-width: 246px;
-  height: 23px;
+  min-height: 23px;
   display: flex;
   justify-content: space-between;
   margin: 25px auto 31px;
+}
+
+@media screen and (max-width: 1024px){
+  .place__item {
+    margin: 22px auto 31px;
+  }
 }
