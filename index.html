@@ -21,15 +21,17 @@
       <button type="button" class="profile__add-button " aria-label="Добавить место"></button>
     </section>
     <section class="place">
-      <ul class="place__table">
+      <!-- <ul class="place__table">
         <li class="place__card">
           <img class="place__photo" src="./images/Karachay-Cherkessia.jpg" alt="Карачаево-Черкесия">
+          <button type="button" class="place__delete-button " aria-label="Удалить место"></button>
           <div class="place__item">
             <h2 class="place__title">Карачаевск</h2>
             <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
           </div>
         </li>
         <li class="place__card">
+          <button type="button" class="place__delete-button " aria-label="Удалить место"></button>
           <img class="place__photo" src="./images/elbrus.jpg" alt="Гора Эльбрус">
           <div class="place__item">
             <h2 class="place__title">Гора Эльбрус</h2>
@@ -37,6 +39,7 @@
           </div>
         </li>
         <li class="place__card">
+          <button type="button" class="place__delete-button " aria-label="Удалить место"></button>
           <img class="place__photo" src="./images/dombay.jpg" alt="Домбай">
           <div class="place__item">
             <h2 class="place__title">Домбай</h2>
@@ -44,6 +47,7 @@
           </div>
         </li>
         <li class="place__card">
+          <button type="button" class="place__delete-button " aria-label="Удалить место"></button>
           <img class="place__photo" src="./images/king-fish.jpg" alt="Царь Рыба. Красноярск">
           <div class="place__item">
             <h2 class="place__title">Красноярский край, гор Дивногорск</h2>
@@ -51,6 +55,7 @@
           </div>
         </li>
         <li class="place__card">
+          <button type="button" class="place__delete-button " aria-label="Удалить место"></button>
           <img class="place__photo" src="./images/Lena_Pillars.jpg" alt="Ленские Столбы. Якутия">
           <div class="place__item">
             <h2 class="place__title">Якутия</h2>
@@ -58,13 +63,20 @@
           </div>
         </li>
         <li class="place__card">
+          <button type="button" class="place__delete-button" aria-label="Удалить место"></button>
           <img class="place__photo" src="./images/river-katun.jpg" alt="Река Катунь. Горный Алтай">
           <div class="place__item">
             <h2 class="place__title">Горный алтай</h2>
             <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
           </div>
         </li>
-      </ul>
+      </ul> -->
+      
+      <div class="place__new-table">
+        <div class="place__elements">
+          
+        </div>
+      </div>
     </section>
   </main>
   <footer class="footer">
@@ -81,6 +93,16 @@
       </form>
     </div>
   </div>
+  <template id="place-template">
+    <article class="place__new-card">
+      <button class="place__delete-button" type="button" aria-label="Удалить место"></button>
+      <img class="place__photo" src="#" alt=" ">
+      <div class="place__item">
+        <h2 class="place__title"></h2>
+        <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
+      </div>
+    </article>
+  </template>
   <script src="./scripts/srcript.js"></script>
 </body>
 </html>

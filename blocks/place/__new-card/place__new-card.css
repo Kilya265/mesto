@@ -1,0 +1,7 @@
+.place__new-card {
+  list-style-type: none;
+  border-radius: 10px;
+  background: #fff;
+  position: relative;
+  max-height: 361px;
+}
