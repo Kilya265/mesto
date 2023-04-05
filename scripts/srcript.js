@@ -1,12 +1,11 @@
 let popupElement = document.querySelector('.popup');
 let popupFormElement = document.querySelector('.popup__form');
 let popupPlace = document.querySelector('.popup_add');
-let placeAddForm = popupPlace.querySelector('.popup_add-form');
+let placeAddForm = popupPlace.querySelector('.popup__add-form');
 
-//popupImg
 let popupImg = document.querySelector('.popup_img');
 let popupImgElement = document.querySelector('.popup__img');
-let popupTitleImg = document.querySelector('.popup__title_img');
+let popupTitleImg = document.querySelector('.popup__title-img');
 
 let popupOpenButtonElement = document.querySelector('.profile__edit-button');
 let popupOpenAddButton = document.querySelector('.profile__add-button');
@@ -27,10 +26,10 @@ let descriptionPopup = document.querySelector('.popup__input_key_description');
 
 
 let titleAddProfile = document.querySelector('.place__title');
-let titleAddPopup = document.querySelector('.popup__add-input_key_title');
+let titleAddPopup = document.querySelector('.popup__input_key_title-add');
 
 let linkProfile = document.querySelector('.place__photo');
-let linkPopup = document.querySelector('.popup__add-input_key_link');
+let linkPopup = document.querySelector('.popup__input_key_link-add');
 
 const initialCards = [
   {
@@ -157,3 +156,4 @@ function saveAddCard(evt) {
   closePopup(popupPlace);
 }
 placeAddForm.addEventListener('submit', saveAddCard);
+
