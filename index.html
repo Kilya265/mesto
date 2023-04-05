@@ -18,53 +18,14 @@
         <button type="button" class="profile__edit-button" aria-label="Редактировать профиль"></button>
         <p class="profile__description">Исследователь океана</p>
       </div>
-      <button type="button" class="profile__add-button " aria-label="Добавить место"></button>
+      <button type="button" class="profile__add-button" aria-label="Добавить место"></button>
     </section>
-    <section class="place">
-      <ul class="place__table">
-        <li class="place__card">
-          <img class="place__photo" src="./images/Karachay-Cherkessia.jpg" alt="Карачаево-Черкесия">
-          <div class="place__item">
-            <h2 class="place__title">Карачаевск</h2>
-            <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
-          </div>
-        </li>
-        <li class="place__card">
-          <img class="place__photo" src="./images/elbrus.jpg" alt="Гора Эльбрус">
-          <div class="place__item">
-            <h2 class="place__title">Гора Эльбрус</h2>
-            <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
-          </div>
-        </li>
-        <li class="place__card">
-          <img class="place__photo" src="./images/dombay.jpg" alt="Домбай">
-          <div class="place__item">
-            <h2 class="place__title">Домбай</h2>
-            <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
-          </div>
-        </li>
-        <li class="place__card">
-          <img class="place__photo" src="./images/king-fish.jpg" alt="Царь Рыба. Красноярск">
-          <div class="place__item">
-            <h2 class="place__title">Красноярский край, гор Дивногорск</h2>
-            <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
-          </div>
-        </li>
-        <li class="place__card">
-          <img class="place__photo" src="./images/Lena_Pillars.jpg" alt="Ленские Столбы. Якутия">
-          <div class="place__item">
-            <h2 class="place__title">Якутия</h2>
-            <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
-          </div>
-        </li>
-        <li class="place__card">
-          <img class="place__photo" src="./images/river-katun.jpg" alt="Река Катунь. Горный Алтай">
-          <div class="place__item">
-            <h2 class="place__title">Горный алтай</h2>
-            <button type="button" class="place__like-button" aria-label="Поставить Лайк"></button>
-          </div>
-        </li>
-      </ul>
+    <section class="place">      
+      <div class="place__new-table">
+        <div class="place__elements">
+          
+        </div>
+      </div>
     </section>
   </main>
   <footer class="footer">
@@ -81,6 +42,34 @@
       </form>
     </div>
   </div>
+  <div class="popup popup_add">
+    <div class="popup__container">
+      <button type="button" class="popup__close" aria-label="Кнопка закрытия формы 'Создать место'"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form class="popup__form popup_add-form" name="popup__add-form" action="#">
+        <input type="text" class="popup__input popup__add-input_key_title" placeholder="Название" name="name" required>
+        <input type="text" class="popup__input popup__add-input_key_link" placeholder="Ссылка на картинку" name="link" required>
+        <button type="submit" class="popup__save popup__save_add" value="submit">Создать</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_img">
+    <div class="popup__container_img">
+      <button type="button" class="popup__close" aria-label="Кнопка закрытия формы 'Масштабная картинка'"></button>
+      <img class="popup__img" src="#" alt="Увеличенное изображенине">
+      <h3 class="popup__title_img"></h3>
+    </div>
+  </div>
+  <template id="place-template">
+    <article class="place__new-card">
+      <button class="place__delete-button" type="button" aria-label="Удалить место"></button>
+      <img class="place__photo" src="#" alt="Здесь должно быть изображение">
+      <div class="place__item">
+        <h3 class="place__title"></h3>
+        <button type="button" class="place__like-button place__like-button_black" aria-label="Поставить Лайк"></button>
+      </div>
+    </article>
+  </template>
   <script src="./scripts/srcript.js"></script>
 </body>
 </html>
