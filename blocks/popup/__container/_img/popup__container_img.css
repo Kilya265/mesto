@@ -1,0 +1,19 @@
+.popup__container_img {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 540px;
+  margin: 0 auto;
+  background-color: 0px 0px 25px rgba(0, 0, 0, 0.9);
+}
+
+@media screen and (max-width: 1024px) {
+  .popup__container_img {
+    min-height: 440px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .popup__container_img {
+    min-height: 299px;
+  }
+}

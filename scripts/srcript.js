@@ -5,18 +5,16 @@ let placeAddForm = popupPlace.querySelector('.popup_add-form');
 
 //popupImg
 let popupImg = document.querySelector('.popup_img');
-
-
-//открытие попапа с картинкой
-// let popupOpenImg = document.querySelector('.')
 let popupImgElement = document.querySelector('.popup__img');
-let popupTitleImg = document.querySelector('.popup__title-img');
+let popupTitleImg = document.querySelector('.popup__title_img');
 
 let popupOpenButtonElement = document.querySelector('.profile__edit-button');
 let popupOpenAddButton = document.querySelector('.profile__add-button');
 
 let popupCloseButtonElement = popupElement.querySelector('.popup__close');
 let popupCloseAddButton = popupPlace.querySelector('.popup__close');
+let popupCloseImg = popupImg.querySelector('.popup__close');
+
 
 let saveButtonElement = document.querySelector('.popup__save');
 let createButtonElement = document.querySelector('.popup__save_add');
@@ -82,6 +80,12 @@ const createCard = ({ name, link }) => {
   сardElements.querySelector('.place__photo').src = link;
 
   setEventListeners(сardElements);
+  сardElements.querySelector('.place__photo').addEventListener('click', function () {
+    openPopup(popupImg);
+    popupImgElement.src = link;
+    popupImgElement.alt = name;
+    popupTitleImg.textContent = name;
+  });
 
   placesElements.prepend(сardElements);
 }
@@ -128,6 +132,10 @@ popupCloseAddButton.addEventListener('click', function () {
   closePopup(popupPlace);
 });
 
+popupCloseImg.addEventListener('click', function () {
+  closePopup(popupImg);
+});
+
 function saveButtonEdit(saveButton) {
   saveButton.preventDefault()
 
@@ -149,4 +157,3 @@ function saveAddCard(evt) {
   closePopup(popupPlace);
 }
 placeAddForm.addEventListener('submit', saveAddCard);
-
