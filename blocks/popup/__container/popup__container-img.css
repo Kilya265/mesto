@@ -1,4 +1,4 @@
-.popup__container_img {
+.popup__container-img {
   position: relative;
   box-sizing: border-box;
   min-height: 540px;
@@ -7,13 +7,13 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .popup__container_img {
+  .popup__container-img {
     min-height: 440px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .popup__container_img {
+  .popup__container-img {
     min-height: 299px;
   }
 }
