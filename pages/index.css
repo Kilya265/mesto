@@ -26,8 +26,8 @@
 @import url(../blocks/popup/__save/popup__save.css);
 @import url(../blocks/popup/_is-opened/popup_is-opened.css);
 
-@import url(../blocks/popup/__container/_img/popup__container-img.css);
-@import url(../blocks/popup/__title/_img/popup__title-img.css);
+@import url(../blocks/popup/__container/popup__container-img.css);
+@import url(../blocks/popup/__title/popup__title-img.css);
 @import url(../blocks/popup/__img/popup__img.css);
 
 @import url(../blocks/place/place.css);
@@ -37,6 +37,7 @@
 @import url(../blocks/place/__item/place__item.css);
 @import url(../blocks/place/__title/place__title.css);
 @import url(../blocks/place/__like-button/place__like-button.css);
+@import url(../blocks/place/__like-button/_black/place__like-button_black.css);
 @import url(../blocks/place/__delete-button/place__delete-button.css);
 @import url(../blocks/place/__new-table/place__new-table.css);
 @import url(../blocks/place/__new-card/place__new-card.css);
@@ -47,4 +48,5 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 
-@import url(../scripts/srcript.js);
+@import url(../scripts/script.js);
+@import url(../scripts/cards.js);
