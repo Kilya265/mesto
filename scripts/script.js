@@ -1,6 +1,6 @@
 //форма редактирования профиля
-const profilePopup = document.querySelector('.popup');
-const profileForm = document.querySelector('.popup__form');
+const profilePopup = document.querySelector('.popup_edit');
+const profileForm = document.querySelector('.popup__edit-form');
 const titleProfile = document.querySelector('.profile__title');
 const titlePopup = document.querySelector('.popup__input_key_title');
 const descriptionProfile = document.querySelector('.profile__description');
@@ -10,15 +10,12 @@ const descriptionPopup = document.querySelector('.popup__input_key_description')
 const buttonOpenProfilePopup = document.querySelector('.profile__edit-button');
 const buttonCloseProfilePopup = profilePopup.querySelector('.popup__close');
 
-//кнопка сохранить редактирование профиля
-const buttonSaveProfile = document.querySelector('.popup__save');
-
 //форма добавления места
 const placePopup = document.querySelector('.popup_add');
 const placeFormCard = placePopup.querySelector('.popup__add-form');
 const titleCardProfile = document.querySelector('.place__title');
 const titleCardPopup = document.querySelector('.popup__input_key_title-add');
-const linkCardProfile = document.querySelector('.place__photo');
+// const linkCardProfile = document.querySelector('.place__photo');
 const linkCardPopup = document.querySelector('.popup__input_key_link-add');
 
 //открытие/закрытие попапа добавление места
@@ -39,30 +36,31 @@ const placesContainer = document.querySelector('.place__elements');
 const placesTemplate = document.querySelector('#place-template').content;
 const placeElement = document.querySelector('.place__photo');
 
-//функция добавления карточек на страницу
-const createCard = ({name, link}) => {
+const createCard = (item) => {
   const сardElement = placesTemplate.querySelector('.place__new-card').cloneNode(true);
-  сardElement.querySelector('.place__title').textContent = name;
-  сardElement.querySelector('.place__photo').alt = name;
-  сardElement.querySelector('.place__photo').src = link;
-
-  setEventListeners(сardElement, { name, link });
+  const linkCardProfile = сardElement.querySelector('.place__photo');
   
-  placesContainer.prepend(сardElement);
+  linkCardProfile.src = item.link;
+  linkCardProfile.alt = item.name;
+
+  сardElement.querySelector('.place__title').textContent = item.name;
+  
+  сardElement.querySelector('.place__delete-button').addEventListener('click', handleDeleteClick);
+  сardElement.querySelector('.place__like-button').addEventListener('click', handleLikeClick);
+  сardElement.querySelector('.place__photo').addEventListener('click', () => {
+    handleImgClick(item);
+  });
+  
+  return сardElement;
 }
 
 //функция лайк
-const handleLikeClickActive = (event) => { 
+const handleLikeClick = (event) => { 
   event.target.classList.toggle('place__like-button_black');
 }
 
-//функция снять лайк
-const handleLikeClickOff = (event) => {
-  event.target.classList.remove();
-}
-
 //удалить карточку
-const buttonDeleteCard = (event) => {
+const handleDeleteClick = (event) => {
   const сardElements = event.target.closest('.place__new-card');
   сardElements.remove();
 }
@@ -74,22 +72,17 @@ const handleImgClick = (cardData) => {
   imageTitleElement.textContent = cardData.name;
 }
 
-//слушатели для вызова функций
-const setEventListeners = (сardElement, cardData) => {
-  сardElement.querySelector('.place__delete-button').addEventListener('click', buttonDeleteCard);
-  сardElement.querySelector('.place__like-button').addEventListener('click', handleLikeClickActive);
-  сardElement.querySelector('.place__like-button').addEventListener('click', handleLikeClickOff);
-  сardElement.querySelector('.place__photo').addEventListener('click', () => {
-    handleImgClick(cardData);
-  });
+//добавление на страницу карточек из массива
+function renderCard(item) {
+  const newCardRender = createCard(item);
+  placesContainer.prepend(newCardRender);
 }
 
-initialCards.forEach(createCard);
-
+initialCards.forEach(renderCard);
 
 //функция открытия PopUp
 const openPopup = function (popup) {
-  popup.classList.toggle('popup_is-opened');
+  popup.classList.add('popup_is-opened');
 }
 
 //слушатели для открытия PopUp
@@ -130,15 +123,18 @@ profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 
 //кнопка Создать в Добавление места
-function handleCardFormSubmit(evt) {
+function handleCardFormSubmit(evt, item) {
   evt.preventDefault();
 
   const newCard = createCard({
     name: titleCardPopup.value,
     link: linkCardPopup.value
   });
+  placesContainer.prepend(newCard);
 
   closePopup(placePopup);
   evt.target.reset();
 }
 placeFormCard.addEventListener('submit', handleCardFormSubmit);
+
+
