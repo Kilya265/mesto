@@ -123,7 +123,7 @@ profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 
 //кнопка Создать в Добавление места
-function handleCardFormSubmit(evt, item) {
+function handleCardFormSubmit(evt) {
   evt.preventDefault();
 
   const newCard = createCard({
