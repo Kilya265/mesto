@@ -1,3 +1,14 @@
+//enableValidation
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__save_disable',
+  activeButtonClass: 'popup__save_valid',
+  inputErrorClass: 'popup__input-error',
+  errorClass: 'popup__error_visible',
+}
+
 //форма редактирования профиля
 const profilePopup = document.querySelector('.popup_edit');
 const profileForm = document.querySelector('.popup__edit-form');
@@ -83,6 +94,8 @@ initialCards.forEach(renderCard);
 //функция открытия PopUp
 const openPopup = function (popup) {
   popup.classList.add('popup_is-opened');
+  document.addEventListener('keydown', hidePopupByEsc);
+  document.addEventListener('click', closePopupByOverlay);
 }
 
 //слушатели для открытия PopUp
@@ -99,6 +112,8 @@ buttonOpenAddPopup.addEventListener('click', function () {
 //функция закрытия PopUp
 const closePopup = function (popup) {
   popup.classList.remove('popup_is-opened');
+  document.removeEventListener('keydown', hidePopupByEsc);
+  document.removeEventListener('click', closePopupByOverlay);
 }
 
 //слушатели для закрытия PopUp
@@ -111,6 +126,26 @@ buttonCloseAddPopup.addEventListener('click', function () {
 buttonCloseImgProfile.addEventListener('click', function () {
   closePopup(imagePopup);
 });
+
+//функция закрытия при нажатии на Escape
+function hidePopupByEsc (evt) {
+  if(evt.key === 'Escape') {
+    const popupCloseEsc = document.querySelector('.popup_is-opened');
+    closePopup(popupCloseEsc);
+  }
+}
+
+//функция закрытия при нажатии на Overlay
+function closePopupByOverlay() {
+  const closeModalPopup = Array.from(document.querySelectorAll('.popup'));
+  closeModalPopup.forEach(popup => {
+    popup.addEventListener('click', (evt) => {
+      if(evt.target == evt.currentTarget) {
+        popup.classList.remove('popup_is-opened');
+      }
+    })
+  })
+}
 
 //кнопка Сохранить в Редактировать профиль
 function handleProfileFormSubmit(evt)  {
@@ -137,4 +172,5 @@ function handleCardFormSubmit(evt) {
 }
 placeFormCard.addEventListener('submit', handleCardFormSubmit);
 
+enableValidation(validationConfig);
 

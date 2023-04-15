@@ -1,4 +1,5 @@
 .popup_is-opened {
+  cursor: pointer;
   visibility: visible;
   width: 100%;
   height: 100%;
