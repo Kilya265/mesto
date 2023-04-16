@@ -26,8 +26,8 @@ const placePopup = document.querySelector('.popup_add');
 const placeFormCard = placePopup.querySelector('.popup__add-form');
 const titleCardProfile = document.querySelector('.place__title');
 const titleCardPopup = document.querySelector('.popup__input_key_title-add');
-// const linkCardProfile = document.querySelector('.place__photo');
 const linkCardPopup = document.querySelector('.popup__input_key_link-add');
+const buttonSavePopup = document.querySelector('.popup__save');
 
 //открытие/закрытие попапа добавление места
 const buttonOpenAddPopup = document.querySelector('.profile__add-button');
@@ -46,6 +46,10 @@ const buttonCloseImgProfile = imagePopup.querySelector('.popup__close');
 const placesContainer = document.querySelector('.place__elements');
 const placesTemplate = document.querySelector('#place-template').content;
 const placeElement = document.querySelector('.place__photo');
+
+const formInputs = Array.from(document.querySelector('.popup__form'));
+const formButton = document.querySelector('.popup__save');
+
 
 const createCard = (item) => {
   const сardElement = placesTemplate.querySelector('.place__new-card').cloneNode(true);
@@ -95,25 +99,27 @@ initialCards.forEach(renderCard);
 const openPopup = function (popup) {
   popup.classList.add('popup_is-opened');
   document.addEventListener('keydown', hidePopupByEsc);
-  document.addEventListener('click', closePopupByOverlay);
 }
 
 //слушатели для открытия PopUp
 buttonOpenProfilePopup.addEventListener('click', function openPropfilePopup() {
+  enableButton(buttonSavePopup, {inactiveButtonClass: validationConfig.activeButtonClass});
   titlePopup.value = titleProfile.textContent;
   descriptionPopup.value = descriptionProfile.textContent;
   openPopup(profilePopup);
+  enableValidation(validationConfig);
 });
 
 buttonOpenAddPopup.addEventListener('click', function () {
+  enableButton(buttonSavePopup, {inactiveButtonClass: validationConfig.activeButtonClass});
   openPopup(placePopup);
+  enableValidation(validationConfig);
 });
 
 //функция закрытия PopUp
 const closePopup = function (popup) {
   popup.classList.remove('popup_is-opened');
   document.removeEventListener('keydown', hidePopupByEsc);
-  document.removeEventListener('click', closePopupByOverlay);
 }
 
 //слушатели для закрытия PopUp
@@ -146,6 +152,7 @@ function closePopupByOverlay() {
     })
   })
 }
+document.addEventListener('mousedown', closePopupByOverlay);
 
 //кнопка Сохранить в Редактировать профиль
 function handleProfileFormSubmit(evt)  {

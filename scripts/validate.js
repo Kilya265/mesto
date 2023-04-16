@@ -40,11 +40,11 @@ const hasInvalidInput = (formInputs) => {
 const enableButton = (button, {inactiveButtonClass, activeButtonClass}) => {
   button.classList.remove(inactiveButtonClass);
   button.classList.add(activeButtonClass);
-  button.setAttribute('disabled');
+  button.removeAttribute('disabled');
 }
 
 const disableButton = (button, {inactiveButtonClass, activeButtonClass}) => {
   button.classList.add(inactiveButtonClass);
   button.classList.remove(activeButtonClass);
-  button.removeAttribute('disabled', true);
+  button.setAttribute('disabled', true);
 }
