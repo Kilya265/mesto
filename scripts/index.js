@@ -9,6 +9,8 @@ const validationConfig = {
   errorClass: 'popup__error_visible',
 }
 
+const popups = document.querySelectorAll('.popup');
+
 //форма редактирования профиля
 const profilePopup = document.querySelector('.popup_edit');
 const profileForm = document.querySelector('.popup__edit-form');
@@ -122,16 +124,18 @@ const closePopup = function (popup) {
   document.removeEventListener('keydown', hidePopupByEsc);
 }
 
-//слушатели для закрытия PopUp
-buttonCloseProfilePopup.addEventListener('click', function () {
-  closePopup(profilePopup);
-});
-buttonCloseAddPopup.addEventListener('click', function () {
-  closePopup(placePopup);
-});
-buttonCloseImgProfile.addEventListener('click', function () {
-  closePopup(imagePopup);
-});
+
+//объединение overlay и closeButton
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup__is-opened')) {
+        closePopup(popup);
+    }
+    if (evt.target.classList.contains('popup__close')) {
+      closePopup(popup);
+    }
+  })
+})
 
 //функция закрытия при нажатии на Escape
 function hidePopupByEsc (evt) {
