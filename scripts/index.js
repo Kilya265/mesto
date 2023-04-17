@@ -131,7 +131,7 @@ popups.forEach((popup) => {
     if (evt.target.classList.contains('popup__close')) {
       closePopup(popup);
     }
-    if(evt.target == evt.currentTarget) {
+    else if (evt.target == evt.currentTarget) {
       closePopup(popup);
     }
   })
