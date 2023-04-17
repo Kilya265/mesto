@@ -128,10 +128,10 @@ const closePopup = function (popup) {
 //объединение overlay и closeButton
 popups.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
-    if (evt.target.classList.contains('popup__is-opened')) {
-        closePopup(popup);
-    }
     if (evt.target.classList.contains('popup__close')) {
+      closePopup(popup);
+    }
+    if(evt.target == evt.currentTarget) {
       closePopup(popup);
     }
   })
@@ -144,19 +144,6 @@ function hidePopupByEsc (evt) {
     closePopup(popupCloseEsc);
   }
 }
-
-//функция закрытия при нажатии на Overlay
-function closePopupByOverlay() {
-  const closeModalPopup = Array.from(document.querySelectorAll('.popup'));
-  closeModalPopup.forEach(popup => {
-    popup.addEventListener('mousedown', (evt) => {
-      if(evt.target == evt.currentTarget) {
-        closePopup(popup);
-      }
-    })
-  })
-}
-closePopupByOverlay();
 
 //кнопка Сохранить в Редактировать профиль
 function handleProfileFormSubmit(evt)  {
