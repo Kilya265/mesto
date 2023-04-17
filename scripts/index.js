@@ -9,6 +9,7 @@ const validationConfig = {
   errorClass: 'popup__error_visible',
 }
 
+//общий класс popup
 const popups = document.querySelectorAll('.popup');
 
 //форма редактирования профиля
@@ -18,6 +19,9 @@ const titleProfile = document.querySelector('.profile__title');
 const titlePopup = document.querySelector('.popup__input_key_title');
 const descriptionProfile = document.querySelector('.profile__description');
 const descriptionPopup = document.querySelector('.popup__input_key_description');
+
+//кнопка сохранить(редактирование) профиль
+const buttonSavePopup = document.querySelector('.popup__save');
 
 //открытие/закрытие попапа редактирование профиля
 const buttonOpenProfilePopup = document.querySelector('.profile__edit-button');
@@ -29,14 +33,13 @@ const placeFormCard = placePopup.querySelector('.popup__add-form');
 const titleCardProfile = document.querySelector('.place__title');
 const titleCardPopup = document.querySelector('.popup__input_key_title-add');
 const linkCardPopup = document.querySelector('.popup__input_key_link-add');
-const buttonSavePopup = document.querySelector('.popup__save');
+
+//кнопка создание(добавления) места
+const buttonCreatePlace = document.querySelector('.popup__save_add');
 
 //открытие/закрытие попапа добавление места
 const buttonOpenAddPopup = document.querySelector('.profile__add-button');
 const buttonCloseAddPopup = placePopup.querySelector('.popup__close');
-
-//кнопка создание(добавления) места
-const buttonCreatePlace = document.querySelector('.popup__save_add');
 
 //форма открытия маштабной картинки
 const imagePopup = document.querySelector('.popup_img');
@@ -51,7 +54,6 @@ const placeElement = document.querySelector('.place__photo');
 
 const formInputs = Array.from(document.querySelector('.popup__form'));
 const formButton = document.querySelector('.popup__save');
-
 
 const createCard = (item) => {
   const сardElement = placesTemplate.querySelector('.place__new-card').cloneNode(true);
@@ -104,18 +106,16 @@ const openPopup = function (popup) {
 }
 
 //слушатели для открытия PopUp
-buttonOpenProfilePopup.addEventListener('click', function openPropfilePopup() {
-  enableButton(buttonSavePopup, {inactiveButtonClass: validationConfig.activeButtonClass});
+buttonOpenProfilePopup.addEventListener('click', function () {
+  disableButton(buttonSavePopup, {inactiveButtonClass: validationConfig.inactiveButtonClass});
   titlePopup.value = titleProfile.textContent;
   descriptionPopup.value = descriptionProfile.textContent;
   openPopup(profilePopup);
-  enableValidation(validationConfig);
 });
 
 buttonOpenAddPopup.addEventListener('click', function () {
-  enableButton(buttonSavePopup, {inactiveButtonClass: validationConfig.activeButtonClass});
+  disableButton(buttonCreatePlace, {inactiveButtonClass: validationConfig.inactiveButtonClass});
   openPopup(placePopup);
-  enableValidation(validationConfig);
 });
 
 //функция закрытия PopUp
@@ -149,14 +149,14 @@ function hidePopupByEsc (evt) {
 function closePopupByOverlay() {
   const closeModalPopup = Array.from(document.querySelectorAll('.popup'));
   closeModalPopup.forEach(popup => {
-    popup.addEventListener('click', (evt) => {
+    popup.addEventListener('mousedown', (evt) => {
       if(evt.target == evt.currentTarget) {
-        popup.classList.remove('popup_is-opened');
+        closePopup(popup);
       }
     })
   })
 }
-document.addEventListener('mousedown', closePopupByOverlay);
+closePopupByOverlay();
 
 //кнопка Сохранить в Редактировать профиль
 function handleProfileFormSubmit(evt)  {
